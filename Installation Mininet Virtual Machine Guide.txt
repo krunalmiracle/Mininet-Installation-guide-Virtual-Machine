@@ -1,0 +1,56 @@
+Install it in VirtualBox or VMWARE
+Install the tools inside the Virtual Box
+BootUP Virtual Linux Machine
+  Terminal Commands
+    USERNAME:mininet
+    PASSWORD:mininet
+    sudo apt update
+Now we will change the keyboard to spanish
+    sudo loadkeys es
+    sudo localectl set-keymap es
+Update Mininet
+    sudo apt-get update
+    sudo apt-get upgrade
+Graphical User Interface Installation recommended lxde(choose any you want),install just once
+    sudo apt-get install lxde
+Start the Graphical interface, remember we will have to start it on every BOOT
+    sudo startx
+Before continuing, recommended reboot
+    sudo reboot
+Tools Installation
+    apt-get install -y bash-completion software-properties-common pythonsoftware-properties sudo curl ssh git
+Install Java
+    java -version
+  If returned nothing than continue else jump
+    sudo apt-get -y install default-jre
+    java -version
+  Copy the Java location
+  Java to System wide Path 
+    nano ~/.bashrc
+  Last line in the bashrc file append the copied Path
+    export JAVA_HOME="/usr/lib/jvm/java-7-openjdk-amd64" 
+  Save and Exit, and try to echo the location
+    echo $JAVA_HOME
+    Should return the Java Directory as appended
+Configure WireShark
+    sudo dpkg-reconfigure wireshark-common
+    sudo chmod +x /usr/bin/dumpcap
+  Launch Wireshark using this to capture packets from mininet network
+    sudo wireshark &
+Open Daylight Hydrogen
+
+Open Daylight Lithium Executtion
+  Download lithium 0.3 from here
+    https://nexus.opendaylight.org/content/repositories/public/org/opendaylight/integration/distribution-karaf/
+  Uncompress the file
+    distribution-karaf-0.3.0-Lithium.tar.gz
+  Open Daylight Executable location
+    cd /home/mininet/Downloads/distribution-karaf-0.3.0-Lithium/bin
+  Execution of Open Daylight
+    sudo ./karaf
+  Adding feautures to support mininet
+    feature:install odl-restconf-all odl-openflowplugin-all odl-l2switch-all odl-mdsal-all odl-yangtools-common odl-dlux-all odl-restconf-all odl-restconf
+  Access the Open Daylight via web
+    http://localhost:8181/index.html
+  If the topology doesn't load properly inside mininet (pingall)
+

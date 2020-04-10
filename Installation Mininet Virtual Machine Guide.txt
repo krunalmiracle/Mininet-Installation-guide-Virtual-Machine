@@ -38,7 +38,10 @@ Configure WireShark
   Launch Wireshark using this to capture packets from mininet network
     sudo wireshark &
 Open Daylight Hydrogen
-
+  sudo apt-get  -y upgrade
+  sudo apt insatll docker.io
+Execute ODL Hidrogen
+  sudo docker run -it -p 6633:6633 -p 8080:8080 -p 6653:6653  lvillatoroq/odl:hydrogen
 Open Daylight Lithium Executtion
   Download lithium 0.3 from here
     https://nexus.opendaylight.org/content/repositories/public/org/opendaylight/integration/distribution-karaf/
